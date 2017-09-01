@@ -1,0 +1,15 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+<div class="container">	
+	<div class="row"><h3 class="text-center">Sorry... "{{type}}" type does not exist in our records. Here are the types that we do have: </h3></div>
+
+	<div class="row">
+		<ul>
+			{% for t in types %}
+			<li class="text-capitalize"><a href="/types/{{t.type}}/items">{{t.type}}</a></li>
+			{% endfor %}
+		</ul>
+	</div>
+</div>
+{% endblock %}

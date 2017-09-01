@@ -1,0 +1,40 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+<div class="container">	
+	<div class="row"><h2 class="text-center text-uppercase">Add New Item</h2></div>
+
+	<div class="row">{{error}}</div>
+	
+	<form method="post" enctype="multipart/form-data" encoding="multipart/form-data" action="/items/new">
+		<div class="form-group">
+			<label for="exampleInputEmail1">Name</label>
+			<input name="name" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{name}}">
+		</div>
+
+		<div class="form-group">
+			<label for="exampleTextarea">Description</label>
+			<textarea type="submit" class="form-control" id="exampleTextarea" rows="3" name="description">{{description}}</textarea>
+		</div>
+
+		<div class="form-group">
+			<label for="exampleSelect1">Type</label>
+			<select class="form-control" id="exampleSelect1" name="type">
+	  			{% for t in types %}
+	  				<option>{{t.type}}</option>
+	  			{% endfor %}
+			</select>
+		</div>
+		
+		<div class="form-group">
+			<label for="exampleInputFile">File input</label>
+			<input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp" name="file">
+			<small id="fileHelp" class="form-text text-muted">Upload a picture of the item</small>
+		</div>
+		
+		<a href="/items">Cancel</a>
+		
+		<input type="submit" class="btn btn-primary" value="Submit">
+	</form>
+</div>
+{% endblock %}

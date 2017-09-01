@@ -1,0 +1,20 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+<div class="container">	
+	<div class="row">
+		<div class="col-md-6 item-page-padding">
+			<img src="{{item.img_path}}" class="img-responsive">
+		</div>
+
+		<div class="col-md-6 item-page-padding">
+			<div class="text-bold text-uppercase type-title">product name</div>
+			<div class="text-capitalize type-title">{{item.name}}<hr></div>
+			<div class="text-bold text-uppercase type-title">product description</div>
+			<div class="text-capitalize type-title">{{item.description}}<hr></div>
+			<div id="edit-delete-button" class="text-bold text-uppercase type-title"><a href="/items/{{item.id}}/edit">Edit item</a> | <a href="/items/{{item.id}}/delete" id="delete-button-color">Delete item</a></div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

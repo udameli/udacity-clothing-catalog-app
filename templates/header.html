@@ -1,0 +1,28 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-10">
+			<a href="/items" id="logo"><h1 class="text-left text-uppercase">Clothing Catalog</h1></a>
+		</div>
+		
+		<div class="col-md-2 text-uppercase text-center" id="login-logout">
+			{% if status == 'loggedIn' %}
+				<a href="/gdisconnect">Logout</a>
+			{% else %}
+				<a href="/login">Login</a>
+			{% endif %}
+		</div>
+	</div>
+</div>
+
+<hr>
+
+<div class="container">
+	<ul class="nav justify-content-center text-uppercase">
+  		<li class="nav-item"><a class="nav-link" href="/items">All</a></li>
+  		{% for t in types %}
+  			<li class="nav-item"><a class="nav-link" href="/types/{{t.type}}/items">{{ t.type }}</a></li>
+  		{% endfor %}
+	</ul>
+</div>
+
+<hr>

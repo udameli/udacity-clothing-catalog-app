@@ -1,0 +1,20 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+<div class="container">
+	<div class="row type-title"><h2 class="text-center text-uppercase">All</h2></div>
+
+	<div class="col-md-4">
+		<a href="/items/new"><img src="/static/images/addNewItem.png" class="item-img-main"></a>
+		<a href="/items/new"><h3 class="text-center text-capitalized">Add new item</h3></a>
+	</div>
+
+	{% for item in items %}
+
+	<div class="col-md-4">
+		<img src="{{item.img_path}}" class="item-img-main">
+		<a href="/items/{{item.id}}"><h3 class="text-center text-capitalize">{{item.name}}</h3></a>
+	</div>
+	{% endfor %}
+</div>
+{% endblock %}
