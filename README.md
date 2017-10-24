@@ -2,6 +2,18 @@
 
 This is a catalog of clothing items. Users are able to view all clothing items, items of a specific clothing type (e.g. coats, dresses, shirts) and individual items. Logged-in users are able to create, edit, delete clothing items.
 
+Main page
+
+![Main page](/static/images/all_items_screenshot.png?raw=true "Main page")
+
+Items grouped by their type
+
+![Type_page](/static/images/type_screenshot.png?raw=true "Type page")
+
+Single item page
+
+![Single item_page](/static/images/single_item_screenshot.png?raw=true "Single item page")
+
 ## Getting Started
 
 Download:
