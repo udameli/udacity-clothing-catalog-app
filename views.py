@@ -185,7 +185,7 @@ def addNewItem():
                 type = request.form['type']
                 type_id = getTypeId(type)
                 newItem = Item(name=request.form['name'],
-                               description=request.form['description'],
+                               description=request.form['description'].replace('. ', '. <br />'),
                                type_id=type_id,
                                user_id=login_session['user_id'],
                                img_path=img_path)
@@ -235,7 +235,7 @@ def editItem(item_id):
                                        types=types, status='loggedIn')
 
             editedItem.name = request.form['name']
-            editedItem.description = request.form['description']
+            editedItem.description = request.form['description'].replace('. ', '. <br />')
             editedItem.type_id = getTypeId(request.form['type'])
             session.commit()
             return redirect(url_for('showItem', item_id=item_id))
