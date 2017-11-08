@@ -3,7 +3,7 @@ from sqlalchemy.orm import sessionmaker
 
 from models import Type, Base
 
-engine = create_engine('sqlite:///clothingcatalog.db')
+engine = create_engine('postgresql://postgres:postgres@34.229.81.212/clothingcatalog.db')
 Base.metadata.bind = engine
 
 DBSession = sessionmaker(bind = engine)

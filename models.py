@@ -1,7 +1,7 @@
-from sqlalchemy import Column, Integer, String, ForeignKey, Text 
+from sqlalchemy import Column, Integer, String, ForeignKey, Text
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship, sessionmaker
-from sqlalchemy import create_engine 
+from sqlalchemy import create_engine
 
 Base = declarative_base()
 
@@ -47,7 +47,7 @@ class Item(Base):
 			'user_id': self.user_id
 		}
 
-engine = create_engine('sqlite:///clothingcatalog.db')
+engine = create_engine('postgresql://postgres:postgres@34.229.81.212/clothingcatalog.db')
 
 Base.metadata.create_all(engine)
 

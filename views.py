@@ -29,7 +29,7 @@ ALLOWED_EXT = set(['png', 'jpg', 'jpeg'])
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
-engine = create_engine('sqlite:///clothingcatalog.db')
+engine = create_engine('postgresql://postgres:postgres@34.229.81.212/clothingcatalog.db')
 
 Base.metadata.bind = engine
 DBSession = sessionmaker(bind=engine)
@@ -195,7 +195,7 @@ def addNewItem():
                     name=request.form['name']).filter_by(
                     description=request.form['description']).one()
                 return redirect(url_for('showItem', item_id=item.id))
-        else: 
+        else:
             print('file extension not allowed')
             return render_template('preFilledForm.html',
                                    name=request.form['name'],
