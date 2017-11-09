@@ -29,7 +29,7 @@ ALLOWED_EXT = set(['png', 'jpg', 'jpeg'])
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
-engine = create_engine('postgresql://postgres:postgres@34.229.81.212/clothingcatalog.db')
+engine = create_engine('postgresql://postgres:postgres@localhost/clothingcatalog.db')
 
 Base.metadata.bind = engine
 DBSession = sessionmaker(bind=engine)

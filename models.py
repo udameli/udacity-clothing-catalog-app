@@ -47,7 +47,7 @@ class Item(Base):
 			'user_id': self.user_id
 		}
 
-engine = create_engine('postgresql://postgres:postgres@34.229.81.212/clothingcatalog.db')
+engine = create_engine('postgresql://postgres:postgres@localhost/clothingcatalog.db')
 
 Base.metadata.create_all(engine)
 
