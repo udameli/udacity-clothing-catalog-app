@@ -185,7 +185,7 @@ def addNewItem():
                 type = request.form['type']
                 type_id = getTypeId(type)
                 newItem = Item(name=request.form['name'],
-                               description=request.form['description'].replace('. ', '. <br />'),
+                               description=request.form['description'],
                                type_id=type_id,
                                user_id=login_session['user_id'],
                                img_path=img_path)
@@ -235,7 +235,7 @@ def editItem(item_id):
                                        types=types, status='loggedIn')
 
             editedItem.name = request.form['name']
-            editedItem.description = request.form['description'].replace('. ', '. <br />')
+            editedItem.description = request.form['description']
             editedItem.type_id = getTypeId(request.form['type'])
             session.commit()
             return redirect(url_for('showItem', item_id=item_id))
@@ -381,7 +381,7 @@ def gdisconnect():
         response.headers['Content-Type'] = 'application/json'
         return response
 
-    access_token = credentials.access_token
+    access_token = credentials
     url = 'https://accounts.google.com/o/oauth2/revoke?token=%s' % access_token
     h = httplib2.Http()
     result = h.request(url, 'GET')[0]
