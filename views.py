@@ -24,7 +24,7 @@ CLIENT_ID = json.loads(open('client_secrets.json', 'r').read())[
 auth = HTTPBasicAuth()
 
 UPLOAD_FOLDER = 'static/images/'
-ALLOWED_EXT = set(['png', 'jpg', 'jpeg'])
+ALLOWED_EXT = {'png', 'jpg', 'jpeg'}
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
@@ -439,4 +439,4 @@ def allowed_file(filename):
 if __name__ == '__main__':
     app.debug = True
     app.secret_key = 'super_secret_key'
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0', port=5050)
