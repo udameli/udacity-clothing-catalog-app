@@ -28,7 +28,7 @@ class Item(Base):
 	__tablename__ = 'item'
 	id = Column(Integer, primary_key = True)
 	name = Column(String(20), nullable = False)
-	description = Column(Text(500), nullable = False)
+	description = Column(Text, nullable = False)
 	img_path = Column(String(500), nullable = False)
 	type_id = Column(Integer, ForeignKey('type.id'), nullable = False)
 	type = relationship(Type)
@@ -47,7 +47,7 @@ class Item(Base):
 			'user_id': self.user_id
 		}
 
-engine = create_engine('postgresql://postgres:postgres@localhost/clothingcatalog.db')
+engine = create_engine('postgresql://catalog:catalog@localhost/catalog')
 
 Base.metadata.create_all(engine)
 
